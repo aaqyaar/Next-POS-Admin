@@ -6,7 +6,7 @@ This is a POS for next generation. It's a web app that can be used in any device
 
 Main features of this app are:
 
-marked with [x] are completed, [] are not completed
+marked with [x] are completed, [ ] are not completed
 
 - [x] PWA (Progressive Web App)
 - [x] Authentication (Login, Logout, Register, Forgot Password, Reset Password)
@@ -16,7 +16,10 @@ marked with [x] are completed, [] are not completed
 - [ ] Customers (Clients)
 - [ ] Suppliers (Vendors)
 - [ ] Sales (Orders)
-- [ ] Purchases (Orders)
+- [ ] Purchases (Orders for Suppliers)
+- [ ] Payments (Sales, Purchases, Customers, Suppliers)
+- [ ] Balance (Cash, Bank, Wallet, MMT)
+- [ ] Bills (Sales, Purchases, Customers, Suppliers)
 - [ ] Reports (Sales, Purchases, Products, Customers, Suppliers)
 - [ ] Settings
 - [ ] Users Management
