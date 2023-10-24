@@ -11,18 +11,18 @@ marked with [x] are completed, [] are not completed
 - [x] PWA (Progressive Web App)
 - [x] Authentication (Login, Logout, Register, Forgot Password, Reset Password)
 - [x] Dashboard (Visual Reports)
-- [] Products (Items)
-- [] Categories (Product Groups)
-- [] Customers (Clients)
-- [] Suppliers (Vendors)
-- [] Sales (Orders)
-- [] Purchases (Orders)
-- [] Reports (Sales, Purchases, Products, Customers, Suppliers)
-- [] Settings
-- [] Users Management
-- [] Roles Based Access Control
-- [] Permissions Management
-- [] Profile Management
+- [ ] Products (Items)
+- [ ] Categories (Product Groups)
+- [ ] Customers (Clients)
+- [ ] Suppliers (Vendors)
+- [ ] Sales (Orders)
+- [ ] Purchases (Orders)
+- [ ] Reports (Sales, Purchases, Products, Customers, Suppliers)
+- [ ] Settings
+- [ ] Users Management
+- [ ] Roles Based Access Control
+- [ ] Permissions Management
+- [ ] Profile Management
 
 ## Installation
 
@@ -51,8 +51,8 @@ cp .env.example .env
 3. Login with default credentials (see below)
 
 ```ts
-const username: string = "abdizamed";
-const password: string = "12345678";
+username = "abdizamed";
+password = "12345678";
 ```
 
 4. Enjoy!
