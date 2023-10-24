@@ -1,7 +1,7 @@
 import { Button, Container, Grid, Typography } from "@mui/joy";
 import { MuiLink } from "components";
 
-export function NotFound() {
+export default function NotFound() {
   return (
     <Container maxWidth="md">
       <Grid container justifyContent="center" alignItems="center" spacing={2}>

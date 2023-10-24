@@ -16,6 +16,8 @@ import { MuiLink as Link } from "components";
 
 import { PATHS } from "router/paths";
 import { AuthHeader } from "components/auth";
+import { useStores } from "models/helpers";
+import { observer } from "mobx-react-lite";
 
 interface FormElements extends HTMLFormControlsCollection {
   email: HTMLInputElement;
@@ -26,7 +28,11 @@ interface SignInFormElement extends HTMLFormElement {
   readonly elements: FormElements;
 }
 
-export function LoginPage() {
+export default observer(function LoginPage() {
+  const {
+    authStore: { loginDefault },
+  } = useStores();
+
   return (
     <>
       <GlobalStyles
@@ -116,13 +122,13 @@ export function LoginPage() {
               <form
                 onSubmit={(event: React.FormEvent<SignInFormElement>) => {
                   event.preventDefault();
-                  const formElements = event.currentTarget.elements;
-                  const data = {
-                    email: formElements.email.value,
-                    password: formElements.password.value,
-                    persistent: formElements.persistent.checked,
-                  };
-                  alert(JSON.stringify(data, null, 2));
+                  // const formElements = event.currentTarget.elements;
+                  // const data = {
+                  //   email: formElements.email.value,
+                  //   password: formElements.password.value,
+                  //   persistent: formElements.persistent.checked,
+                  // };
+                  loginDefault();
                 }}
               >
                 <FormControl required>
@@ -162,4 +168,4 @@ export function LoginPage() {
       </Box>
     </>
   );
-}
+});
