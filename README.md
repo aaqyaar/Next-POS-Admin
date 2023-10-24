@@ -4,20 +4,25 @@ This is a POS for next generation. It's a web app that can be used in any device
 
 ## Features
 
+Main features of this app are:
+
+marked with [x] are completed, [] are not completed
+
+- [x] PWA (Progressive Web App)
 - [x] Authentication (Login, Logout, Register, Forgot Password, Reset Password)
 - [x] Dashboard (Visual Reports)
-- [x] Products (Items)
-- [x] Categories (Product Groups)
-- [x] Customers (Clients)
-- [x] Suppliers (Vendors)
-- [x] Sales (Orders)
-- [x] Purchases (Orders)
-- [x] Reports (Sales, Purchases, Products, Customers, Suppliers)
-- [x] Settings
-- [x] Users Management
-- [x] Roles Based Access Control
-- [x] Permissions Management
-- [x] Profile Management
+- [] Products (Items)
+- [] Categories (Product Groups)
+- [] Customers (Clients)
+- [] Suppliers (Vendors)
+- [] Sales (Orders)
+- [] Purchases (Orders)
+- [] Reports (Sales, Purchases, Products, Customers, Suppliers)
+- [] Settings
+- [] Users Management
+- [] Roles Based Access Control
+- [] Permissions Management
+- [] Profile Management
 
 ## Installation
 
@@ -45,9 +50,9 @@ cp .env.example .env
 2. Visit `http://localhost:3000`
 3. Login with default credentials (see below)
 
-```bash
-username: abdizamed
-password: 123456
+```ts
+const username: string = "abdizamed";
+const password: string = "12345678";
 ```
 
 4. Enjoy!
