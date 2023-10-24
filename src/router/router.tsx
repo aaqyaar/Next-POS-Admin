@@ -2,37 +2,30 @@
  * Dynamically add routes based on the list defined in ./routes.ts,
  * can be customized to meet your use case
  */
-import React from "react";
+import React, { Suspense } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { routes } from "./routes";
 import { PATHS } from "./paths";
-import { NotFound } from "pages";
+import NotFound from "pages/404";
+import { LoadingScreen } from "components";
 
 export const Router = () => {
   return (
     <Routes>
-      {routes.map(({ guard, component, layout, path, isPublic }) => {
+      {routes.map(({ guard, component, layout, path }) => {
         const Guard = guard || React.Fragment;
         const Layout = layout || React.Fragment;
         const Component = component;
-        return isPublic ? (
-          <Route
-            key={path}
-            path={path}
-            element={
-              <Layout>
-                <Component />
-              </Layout>
-            }
-          />
-        ) : (
+        return (
           <Route key={path} element={<Guard />}>
             <Route
               key={path}
               path={path}
               element={
                 <Layout>
-                  <Component />
+                  <Suspense fallback={<LoadingScreen />}>
+                    <Component />
+                  </Suspense>
                 </Layout>
               }
             />

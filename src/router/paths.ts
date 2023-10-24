@@ -43,6 +43,7 @@ export const PATHS = {
     settings: {
       root: path(DASHBOARD, "/settings"),
     },
+    support: path(DASHBOARD, "/support"),
     // Users and Roles
     users: {
       root: path(DASHBOARD, "/users"),
