@@ -15,7 +15,8 @@ export const PATHS = {
     resetPassword: path(AUTH, "/reset-password"),
   },
   dashboard: {
-    root: path(DASHBOARD, ""),
+    root: path(DASHBOARD, "/app"),
+
     products: {
       root: path(DASHBOARD, "/products"),
       add: path(DASHBOARD, "/products/add"),

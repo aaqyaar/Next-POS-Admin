@@ -1,5 +1,5 @@
 import * as React from "react";
-
+import { matchPath, useLocation, useMatch } from "react-router-dom";
 import {
   GlobalStyles,
   Avatar,
@@ -68,6 +68,12 @@ export function Sidebar() {
   const {
     authStore: { logout },
   } = useStores();
+  const { pathname } = useLocation();
+
+  const isActiveRoot = (path: string) => {
+    return path ? !!matchPath({ path, end: false }, pathname) : false;
+  };
+
   return (
     <Sheet
       className="Sidebar"
@@ -190,7 +196,10 @@ export function Sidebar() {
             ) : (
               <Link to={item.path}>
                 <ListItem>
-                  <ListItemButton sx={{ p: 1 }}>
+                  <ListItemButton
+                    sx={{ p: 1 }}
+                    selected={isActiveRoot(item.path)}
+                  >
                     {item && item.icon && <item.icon />}
 
                     <ListItemContent>

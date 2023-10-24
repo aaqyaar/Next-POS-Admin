@@ -240,6 +240,7 @@ export default observer(function DashboardApp() {
                   options={chartOptions as any}
                   series={chartOptions.series}
                   type="area"
+                  width={"90%"}
                 />
               </Card>
             </Grid>
@@ -250,6 +251,7 @@ export default observer(function DashboardApp() {
                   options={pieChartOptions.options}
                   series={pieChartOptions.series}
                   type="donut"
+                  width={"94%"}
                 />
               </Card>
 
@@ -258,6 +260,7 @@ export default observer(function DashboardApp() {
                   options={pieChartOptions.options}
                   series={pieChartOptions.series}
                   type="donut"
+                  width={"94%"}
                 />
               </Card>
             </Grid>

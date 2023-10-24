@@ -40,6 +40,19 @@ export const routes: Route[] = [
     isPublic: false,
   },
   {
+    path: PATHS.dashboard.customers.root,
+    component: lazy(() => import("pages/dashboard/orders")),
+    guard: AuthGuard,
+    isPublic: false,
+  },
+  {
+    path: PATHS.dashboard.products.root,
+    component: lazy(() => import("pages/dashboard/orders")),
+    guard: AuthGuard,
+    isPublic: false,
+  },
+  // ? Auth routes
+  {
     path: PATHS.auth.login,
     component: lazy(() => import("pages/auth/login")),
     isPublic: true,
