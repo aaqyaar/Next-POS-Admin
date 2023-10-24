@@ -1,11 +1,11 @@
-import React from "react";
+import { Suspense } from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
 import App from "./App";
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import reportWebVitals from "./reportWebVitals";
 import { StoreProvider, setupStore } from "models/helpers";
 import { BrowserRouter as Router } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
 
 const store = setupStore();
 
@@ -14,9 +14,13 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <Router>
-    <StoreProvider value={store}>
-      <App />
-    </StoreProvider>
+    <HelmetProvider>
+      <StoreProvider value={store}>
+        <Suspense>
+          <App />
+        </Suspense>
+      </StoreProvider>
+    </HelmetProvider>
   </Router>
 );
 

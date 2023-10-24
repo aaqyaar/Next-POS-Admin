@@ -4,3 +4,4 @@ export * from "./order-list";
 export * from "./order-table";
 export * from "./sidebar";
 export * from "./mui-link";
+export * from "./loading-screen";

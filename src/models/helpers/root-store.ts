@@ -1,5 +1,5 @@
 import { Instance, SnapshotOut, types } from "mobx-state-tree";
-import { AuthenticationStoreModel } from "models/auth-store";
+import { AuthenticationStoreModel } from "models/auth-store-model";
 
 /**
  * The root store, any properties defined here will be accessible

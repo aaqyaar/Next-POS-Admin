@@ -14,6 +14,7 @@ import {
   ListItemContent,
   Typography,
   Sheet,
+  Button,
 } from "@mui/joy";
 import { listItemButtonClasses } from "@mui/joy/ListItemButton";
 import { MuiLink as Link } from "./mui-link";
@@ -28,6 +29,8 @@ import {
 import { ColorSchemeToggle } from "./color-scheme-toggle";
 import { closeSidebar } from "utils/sidebar-funcs";
 import { navConfig } from "layouts/nav-config";
+import { useStores } from "models/helpers";
+import { PATHS } from "router/paths";
 
 function Toggler({
   defaultExpanded = false,
@@ -62,6 +65,9 @@ function Toggler({
 }
 
 export function Sidebar() {
+  const {
+    authStore: { logout },
+  } = useStores();
   return (
     <Sheet
       className="Sidebar"
@@ -154,7 +160,10 @@ export function Sidebar() {
               <ListItem nested key={index}>
                 <Toggler
                   renderToggle={({ open, setOpen }) => (
-                    <ListItemButton onClick={() => setOpen(!open)}>
+                    <ListItemButton
+                      onClick={() => setOpen(!open)}
+                      sx={{ p: 1 }}
+                    >
                       {item && item.icon && <item.icon />}
                       <ListItemContent>
                         <Typography level="title-sm">{item.name}</Typography>
@@ -181,7 +190,7 @@ export function Sidebar() {
             ) : (
               <Link to={item.path}>
                 <ListItem>
-                  <ListItemButton>
+                  <ListItemButton sx={{ p: 1 }}>
                     {item && item.icon && <item.icon />}
 
                     <ListItemContent>
@@ -208,18 +217,22 @@ export function Sidebar() {
             mb: 2,
           }}
         >
-          <ListItem>
-            <ListItemButton>
-              <SupportRoundedIcon />
-              Support
-            </ListItemButton>
-          </ListItem>
-          <ListItem>
-            <ListItemButton>
-              <SettingsRoundedIcon />
-              Settings
-            </ListItemButton>
-          </ListItem>
+          <Link to={PATHS.dashboard.support}>
+            <ListItem>
+              <ListItemButton sx={{ p: 1 }}>
+                <SupportRoundedIcon />
+                Support
+              </ListItemButton>
+            </ListItem>
+          </Link>
+          <Link to={PATHS.dashboard.settings.root}>
+            <ListItem>
+              <ListItemButton sx={{ p: 1 }}>
+                <SettingsRoundedIcon />
+                Settings
+              </ListItemButton>
+            </ListItem>
+          </Link>
         </List>
       </Box>
       <Divider />
@@ -233,9 +246,9 @@ export function Sidebar() {
           <Typography level="title-sm">Abdi Zamed</Typography>
           <Typography level="body-xs">Adminstrator</Typography>
         </Box>
-        <IconButton size="sm" variant="plain" color="neutral">
+        <Button variant="plain" color="neutral" size="sm" onClick={logout}>
           <LogoutRoundedIcon />
-        </IconButton>
+        </Button>
       </Box>
     </Sheet>
   );
