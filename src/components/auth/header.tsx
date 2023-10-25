@@ -27,7 +27,7 @@ export function AuthHeader() {
         <IconButton variant="soft" color="primary" size="sm">
           <BadgeRounded />
         </IconButton>
-        <Typography level="title-lg">Next Wave</Typography>
+        <Typography level="title-lg">Next POS</Typography>
       </Box>
       <ColorSchemeToggle />
     </Box>

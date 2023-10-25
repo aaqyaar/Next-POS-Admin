@@ -152,9 +152,11 @@ export default observer(function LoginPage() {
                     }}
                   >
                     <Checkbox size="sm" label="Remember me" name="persistent" />
-                    <Link to={PATHS.auth.forgotPassword}>
-                      Forgot your password?
-                    </Link>
+                    <Typography level="body-sm">
+                      <Link to={PATHS.auth.forgotPassword}>
+                        Forgot your password?
+                      </Link>
+                    </Typography>
                   </Box>
                   <Button type="submit" fullWidth>
                     Sign in
@@ -165,7 +167,7 @@ export default observer(function LoginPage() {
           </Box>
           <Box component="footer" sx={{ py: 3 }}>
             <Typography level="body-xs" textAlign="center">
-              © Developed By Next Wave {new Date().getFullYear()}
+              © Developed By Next POS {new Date().getFullYear()}
             </Typography>
           </Box>
         </Box>
