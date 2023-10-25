@@ -55,17 +55,7 @@ export const AuthenticationStoreModel = types
         return response;
       } catch (error) {
         store.setStatus("error");
-        throw error;
-      }
-    },
-
-    todos: async () => {
-      try {
-        const response = await api.get("todos");
-        console.log(response);
-        return response;
-      } catch (error) {
-        throw error;
+        return error;
       }
     },
 
