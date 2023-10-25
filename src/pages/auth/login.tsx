@@ -31,7 +31,7 @@ interface SignInFormElement extends HTMLFormElement {
 
 export default observer(function LoginPage() {
   const {
-    authStore: { loginDefault, login },
+    authStore: { login },
   } = useStores();
 
   return (
