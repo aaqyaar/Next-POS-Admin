@@ -6,13 +6,14 @@ import axios, {
 import { getGeneralApiProblem } from "./api.problem";
 import { load } from "utils/storage";
 import { ILoginResponse } from "types";
+import { getEnv } from "utils/helpers";
 
 class ApiService {
   private instance: AxiosInstance;
 
   constructor() {
     this.instance = axios.create({
-      baseURL: "http://localhost:8000/api/v1",
+      baseURL: getEnv("REACT_APP_API_URL"),
       timeout: 700000,
     });
 
