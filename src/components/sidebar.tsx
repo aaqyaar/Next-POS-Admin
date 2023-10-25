@@ -1,5 +1,5 @@
 import * as React from "react";
-import { matchPath, useLocation, useMatch } from "react-router-dom";
+import { matchPath, useLocation } from "react-router-dom";
 import {
   GlobalStyles,
   Avatar,
@@ -167,6 +167,7 @@ export function Sidebar() {
                 <Toggler
                   renderToggle={({ open, setOpen }) => (
                     <ListItemButton
+                      selected={isActiveRoot(item.path)}
                       onClick={() => setOpen(!open)}
                       sx={{ p: 1 }}
                     >

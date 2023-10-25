@@ -48,8 +48,8 @@ export const navConfig: NavConfig[] = [
     icon: PersonRounded,
     children: [
       {
-        path: PATHS.dashboard.users.profile,
-        name: "My profile",
+        path: PATHS.dashboard.users.root,
+        name: "List",
       },
       {
         path: PATHS.dashboard.users.add,
