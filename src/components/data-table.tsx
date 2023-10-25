@@ -2,7 +2,6 @@
 import * as React from "react";
 import { ColorPaletteProp } from "@mui/joy/styles";
 import {
-  Avatar,
   Box,
   Button,
   Chip,
@@ -21,22 +20,14 @@ import {
   Checkbox,
   IconButton,
   Typography,
-  Menu,
-  MenuButton,
-  MenuItem,
-  Dropdown,
 } from "@mui/joy";
 import { iconButtonClasses } from "@mui/joy/IconButton";
 // icons
 import FilterAltIcon from "@mui/icons-material/FilterAlt";
 import SearchIcon from "@mui/icons-material/Search";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
-import CheckRoundedIcon from "@mui/icons-material/CheckRounded";
-import BlockIcon from "@mui/icons-material/Block";
-import AutorenewRoundedIcon from "@mui/icons-material/AutorenewRounded";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
-import MoreHorizRoundedIcon from "@mui/icons-material/MoreHorizRounded";
 import { AutorenewRounded, Block, CheckRounded } from "@mui/icons-material";
 
 type Customer = {
