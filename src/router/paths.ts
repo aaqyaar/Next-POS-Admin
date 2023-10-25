@@ -50,7 +50,6 @@ export const PATHS = {
       root: path(DASHBOARD, "/users"),
       add: path(DASHBOARD, "/users/add"),
       edit: path(DASHBOARD, "/users/edit"),
-      profile: path(DASHBOARD, "/users/profile"),
       // roles
       roles: {
         root: path(DASHBOARD, "/users/roles"),

@@ -1,16 +1,7 @@
 import { FC } from "react";
 import { AuthGuard, GuestGuard } from "guards";
 import { PATHS } from "./paths";
-import { lazy, Suspense } from "react";
-import { LoadingScreen } from "components";
-
-const Loadable = (Component: FC) => (props: any) => {
-  return (
-    <Suspense fallback={<LoadingScreen />}>
-      <Component {...props} />
-    </Suspense>
-  );
-};
+import { lazy } from "react";
 
 /**
  * Basic route type that the router consumes for dynamic generation
@@ -51,7 +42,13 @@ export const routes: Route[] = [
     guard: AuthGuard,
     isPublic: false,
   },
-  // ? Auth routes
+  {
+    path: PATHS.dashboard.users.root,
+    component: lazy(() => import("pages/dashboard/users")),
+    guard: AuthGuard,
+    isPublic: false,
+  },
+  // ? Authentication routes
   {
     path: PATHS.auth.login,
     component: lazy(() => import("pages/auth/login")),

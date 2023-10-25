@@ -4,17 +4,25 @@ import axios, {
   AxiosInstance,
 } from "axios";
 import { getGeneralApiProblem } from "./api.problem";
+import { load } from "utils/storage";
+import { ILoginResponse } from "types";
 
 class ApiService {
   private instance: AxiosInstance;
 
   constructor() {
     this.instance = axios.create({
-      baseURL: "https://jsonplaceholder.typicode.com/",
+      baseURL: "http://localhost:8000/api/v1",
       timeout: 700000,
     });
 
     this.instance.defaults.headers.common["Content-Type"] = "application/json";
+
+    const { authStore } = load("root") as { authStore: ILoginResponse };
+
+    this.instance.defaults.headers.common[
+      "Authorization"
+    ] = `Bearer ${authStore?.tokens?.accessToken}`;
 
     this.instance.interceptors.response.use(
       (response: AxiosResponse) => {
@@ -45,7 +53,8 @@ class ApiService {
       if (axios.isAxiosError(error)) {
         throw getGeneralApiProblem(
           error.response?.status || 500,
-          error.message
+          error.response?.data.hasOwnProperty("message") &&
+            error.response?.data.message
         );
       } else {
         throw getGeneralApiProblem(500, error.message);

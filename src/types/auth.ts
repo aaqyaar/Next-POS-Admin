@@ -8,3 +8,8 @@ export interface Tokens {
   accessToken: string;
   refreshToken: string;
 }
+
+export interface ILoginResponse {
+  tokens: Tokens;
+  user: Profile;
+}
