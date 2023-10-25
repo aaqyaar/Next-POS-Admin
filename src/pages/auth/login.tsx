@@ -18,6 +18,7 @@ import { PATHS } from "router/paths";
 import { AuthHeader } from "components/auth";
 import { useStores } from "models/helpers";
 import { observer } from "mobx-react-lite";
+import toast from "react-hot-toast";
 
 interface FormElements extends HTMLFormControlsCollection {
   email: HTMLInputElement;
@@ -30,7 +31,7 @@ interface SignInFormElement extends HTMLFormElement {
 
 export default observer(function LoginPage() {
   const {
-    authStore: { loginDefault },
+    authStore: { loginDefault, login },
   } = useStores();
 
   return (
@@ -122,13 +123,16 @@ export default observer(function LoginPage() {
               <form
                 onSubmit={(event: React.FormEvent<SignInFormElement>) => {
                   event.preventDefault();
-                  // const formElements = event.currentTarget.elements;
-                  // const data = {
-                  //   email: formElements.email.value,
-                  //   password: formElements.password.value,
-                  //   persistent: formElements.persistent.checked,
-                  // };
-                  loginDefault();
+                  const formElements = event.currentTarget.elements;
+                  const data = {
+                    username: formElements.email.value,
+                    password: formElements.password.value,
+                  };
+                  login(data.username, data.password).then((res: any) => {
+                    if (res.hasOwnProperty("kind") && res.kind !== "ok") {
+                      toast.error(res.message);
+                    }
+                  });
                 }}
               >
                 <FormControl required>
