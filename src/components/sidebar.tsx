@@ -195,7 +195,7 @@ export function Sidebar() {
                 </Toggler>
               </ListItem>
             ) : (
-              <Link to={item.path}>
+              <Link to={item.path} key={index}>
                 <ListItem>
                   <ListItemButton
                     sx={{ p: 1 }}
